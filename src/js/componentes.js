@@ -1,10 +1,19 @@
-import "../css/componentes.css";
+const persona = {
+	black: {
+		nombre: "Natasha",
+		apellido: "Romanof",
+		alias: "Black Widow",
+		afiliacion: "Avengers",
+		poderes: ["asesinato", "rapidez", "oscuridad", "balas eléctricas"],
+	},
+};
 
-export const saludar = ({ nombre }) => {
-	console.log("Se llamo a la función saludar");
+export const solicitud = async (nombre) => {
+	const heroe = persona[nombre];
 
-	const h2 = document.createElement("h2");
-	h2.innerText = `Hola ${nombre}`;
-
-	document.body.append(h2);
+	if (heroe) {
+		return heroe;
+	} else {
+		throw `El heroe ${nombre} no existe en la base de datos`;
+	}
 };
